@@ -1,47 +1,693 @@
 <!doctype html>
+<!-- The header -->
+
+<html>
+<head>
+<style>
+    
+ <div id="first">
+</div>
+    
+    <html lang="en">
+<head>
+<title>Digital Caravanserai</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body { margin: 0;
+     }
+
+/* Style the header */
+.header {
+  background-color: #e1dad1;
+  padding: 50px;
+  text-align: center;
+    border-style:solid;
+       border-width: 12px;
+    border-bottom-color: #577575;
+    border-left-color: #e1dad1;
+    border-right-color: #e1dad1;
+    border-top-color: #e1dad1;
+    
+    
+        
+    
+}
+</style>
+</head>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/stylex1.css">
+</head>
+<body>
+   <div class="header">
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+       <h1 style="font-size:28px">The Route of Caravanserais from Mardin to Sivas </h1>   
+ <p> Mardin | Şırnak | Siirt | Batman | Diyarbakır | Bingöl | Malatya | Elazığ | Sivas </p> 
+   </div>
+</body>
+</html> 
+
+
+     
+<!-- QGIS Map-->
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <head>
+        
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/leaflet-search.css">
+        <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
+        <link rel="stylesheet" href="css/leaflet-measure.css">
+        <div>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <title>Digital Caravanserai</title>
-  </head>
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 82%;
+            padding: 0;
+            margin: 0;
+             -webkit-filter: grayscale(21%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(21%);
+                   }
+        </style>
+        </div>
 
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link" href="../index.html">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="../AYS/index.html">AYS</a>
-      <a class="nav-item nav-link" href="../TAN/index.html">TAN</a>
-      <a class="nav-item nav-link" href="../NUR/index.html">NUR</a>
-      <a class="nav-item nav-link" href="../BEG/index.html">BEG</a>
-      <a class="nav-item nav-link" href="../SUM/index.html">SUM</a>
-      <a class="nav-item nav-link" href="../VAR/index.html">VAR</a>
-      <a class="nav-item nav-link" href="../CEM/index.html">CEM</a>
-      <a class="nav-item nav-link active" href="../FEY/index.html">FEY</a>
-      <a class="nav-item nav-link" href="../GUL/index.html">GUL</a>
-      <a class="nav-item nav-link" href="../SEN/index.html">SEN</a>
-      <a class="nav-item nav-link" href="../SAR/index.html">SAR</a>
-      <a class="nav-item nav-link" href="../NIM/index.html">NIM</a>
-      <a class="nav-item nav-link" href="../SEP/index.html">SEP</a>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
+        <script src="js/leaflet-measure.js"></script>
+        <script src="js/leaflet-search.js"></script>
+        <script src="data/r8_mapx_1.js"></script>
+        <script>
+        var highlightLayer;
+        function highlightFeature(e) {
+            highlightLayer = e.target;
+
+            if (e.target.feature.geometry.type === 'LineString') {
+              highlightLayer.setStyle({
+                color: '#ffff00',
+              });
+            } else {
+              highlightLayer.setStyle({
+                fillColor: '#ffff00',
+                fillOpacity: 1
+              });
+            }
+        }
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[32.81316832792418,25.859528098278627],[43.41782265304388,44.27571614036482]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var measureControl = new L.Control.Measure({
+            position: 'topleft',
+            primaryLengthUnit: 'meters',
+            secondaryLengthUnit: 'kilometers',
+            primaryAreaUnit: 'sqmeters',
+            secondaryAreaUnit: 'hectares'
+        });
+        measureControl.addTo(map);
+        document.getElementsByClassName('leaflet-control-measure-toggle')[0]
+        .innerHTML = '';
+        document.getElementsByClassName('leaflet-control-measure-toggle')[0]
+        .className += ' fas fa-ruler';
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        var layer_OpenStreetMap_0 = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            opacity: 1.0,
+            attribution: '',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 19
+        });
+        layer_OpenStreetMap_0;
+        map.addLayer(layer_OpenStreetMap_0);
+        function pop_r8_mapx_1(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['fid'] !== null ? Autolinker.link(feature.properties['fid'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Common Nam</th>\
+                        <td>' + (feature.properties['Common Nam'] !== null ? Autolinker.link(feature.properties['Common Nam'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Alternativ</th>\
+                        <td>' + (feature.properties['Alternativ'] !== null ? Autolinker.link(feature.properties['Alternativ'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Village</th>\
+                        <td>' + (feature.properties['Village'] !== null ? Autolinker.link(feature.properties['Village'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">District</th>\
+                        <td>' + (feature.properties['District'] !== null ? Autolinker.link(feature.properties['District'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Province</th>\
+                        <td>' + (feature.properties['Province'] !== null ? Autolinker.link(feature.properties['Province'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Date</th>\
+                        <td>' + (feature.properties['Date'] !== null ? Autolinker.link(feature.properties['Date'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">References</th>\
+                        <td>' + (feature.properties['References'] !== null ? Autolinker.link(feature.properties['References'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Latitude'] !== null ? Autolinker.link(feature.properties['Latitude'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Longitude'] !== null ? Autolinker.link(feature.properties['Longitude'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_r8_mapx_1_0() {
+            return {
+                pane: 'pane_r8_mapx_1',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(73,119,136,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_r8_mapx_1');
+        map.getPane('pane_r8_mapx_1').style.zIndex = 401;
+        map.getPane('pane_r8_mapx_1').style['mix-blend-mode'] = 'normal';
+        var layer_r8_mapx_1 = new L.geoJson(json_r8_mapx_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_r8_mapx_1',
+            layerName: 'layer_r8_mapx_1',
+            pane: 'pane_r8_mapx_1',
+            onEachFeature: pop_r8_mapx_1,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_r8_mapx_1_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_r8_mapx_1);
+        map.addLayer(layer_r8_mapx_1);
+        var osmGeocoder = new L.Control.Geocoder({
+            collapsed: true,
+            position: 'topleft',
+            text: 'Search',
+            title: 'Testing'
+        }).addTo(map);
+        document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
+        .className += ' fa fa-search';
+        document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
+        .title += 'Search for a place';
+        setBounds();
+        map.addControl(new L.Control.Search({
+            layer: layer_r8_mapx_1,
+            initial: false,
+            hideMarkerOnCollapse: true,
+            propertyName: 'Common Nam'}));
+        document.getElementsByClassName('search-button')[0].className +=
+         ' fa fa-binoculars';
+        </script>
+    </body>
+</html>
+
+
+
+
+<!-- caravanserais content -->
+
+
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+    
+
+<!-- MAIN (Center website) -->
+<div class="main">
+
+<h1 style="font-size:24px"> AN AUGMENTED JOURNEY TO CARAVANSERAIS </h1>
+
+
+<h2>The Route</h2>
+
+<div id="myBtnContainer">
+   <link href="https://fonts.googleapis.com/css2?family=Antic&family=Crimson+Text:wght@600;700&family=Lustria&family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
+  <button class="btn active" onclick="filterSelection('all')"  style= "font-family: 'Montserrat', sans-serif"> Show all</button>
+  <button class="btn" onclick="filterSelection('mardin')" style= "font-family: 'Montserrat', sans-serif"> Mardin</button>
+  <button class="btn" onclick="filterSelection('sirnak')" style= "font-family: 'Montserrat', sans-serif"> Şırnak</button>
+  <button class="btn" onclick="filterSelection('siirt')" style= "font-family: 'Montserrat', sans-serif"> Siirt</button>
+    <button class="btn" onclick="filterSelection('batman')" style= "font-family: 'Montserrat', sans-serif"> Batman</button>
+    <button class="btn" onclick="filterSelection('diyarbakir')" style= "font-family: 'Montserrat', sans-serif"> Diyarbakır</button>
+     <button class="btn" onclick="filterSelection('bingol')" style= "font-family: 'Montserrat', sans-serif"> Bingöl</button>
+     <button class="btn" onclick="filterSelection('malatya')" style= "font-family: 'Montserrat', sans-serif"> Malatya</button>
+     <button class="btn" onclick="filterSelection('elazig')" style= "font-family: 'Montserrat', sans-serif"> Elazığ</button>
+     <button class="btn" onclick="filterSelection('sivas')" style= "font-family: 'Montserrat', sans-serif"> Sivas</button>        
+</div>
+
+    
+<!-- Caravanserais Gallery Grid -->
+    
+    
+<div class="row">
+        
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+    
+     <!-- Diyarbakır --> 
+    
+    <div class="column diyarbakir">
+      <div class="content">
+      <img src="images/diy_artuklu.png" alt="DiyarbakirCaravanserais1" style="width:100%">
+     <body>
+      <h4>Artuklu Caravanserai</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<span id="dots1">...</span><span id="more1"> Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</span></p>
+<button onclick="myFunction1()" id="myBtn1">Read more</button>
+            </body>
+    </div>
+  </div>    
+    
+    <div class="column diyarbakir">
+    <div class="content">
+      <img src="images/diy_artuklu.png" alt="DiyarbakirCaravanserais2" style="width:100%">
+      <h4>Çermik Han</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<span id="dots2">...</span><span id="more2"> Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</span></p>
+        <button onclick="myFunction2()" id="myBtn2">Read more</button>
     </div>
   </div>
-</nav>
+        
+    <div class="column diyarbakir">
+    <div class="content">
+      <img src="images/diy_artuklu.png" alt="DiyarbakirCaravanserais3" style="width:100%">
+      <h4>Gevran Han</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<span id="dots3">...</span><span id="more3"> Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</span></p>
+        <button onclick="myFunction3()" id="myBtn3">Read more</button>
+    </div>
+  </div>
+        
+    <div class="column diyarbakir">
+    <div class="content">
+      <img src="images/diy_artuklu.png" alt="DiyarbakirCaravanserais4" style="width:100%">
+      <h4>Şerbettin Han</h4>
+       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<span id="dots4">...</span><span id="more4"> Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</span></p>
+        <button onclick="myFunction4()" id="myBtn4">Read more</button>
+    </div>
+  </div>
+        
+    <div class="column diyarbakir">
+    <div class="content">
+      <img src="images/diy_artuklu.png" alt="DiyarbakirCaravanserais5" style="width:100%">
+      <h4>Tepe Han</h4>
+       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<span id="dots5">...</span><span id="more5"> Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</span></p>
+        <button onclick="myFunction5()" id="myBtn5">Read more</button>
+    </div>
+  </div>
+    
+       
+<!-- Malatya --> 
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+    
+    
+    <div class="column malatya">
+    <div class="content">
+      <img src="images/diy_artuklu.png" alt="MalatyaCaravanserais1" style="width:100%">
+      <h4>Kalular Han</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<span id="dots6">...</span><span id="more6"> Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</span></p>
+<button onclick="myFunction6()" id="myBtn6">Read more</button>
+    </div>
+  </div>
+    
+    <div class="column malatya">
+    <div class="content">
+      <img src="images/diy_artuklu.png" alt="MalatyaCaravanserais2" style="width:100%">
+      <h4>Yazı Han</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<span id="dots7">...</span><span id="more7"> Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</span></p>
+<button onclick="myFunction7()" id="myBtn7">Read more</button>
+    </div>
+  </div>
+    
+    <div class="column malatya">
+    <div class="content">
+      <img src="images/diy_artuklu.png" alt="MalatyaCaravanserais3" style="width:100%">
+      <h4>Sarıhacı Han</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<span id="dots8">...</span><span id="more8"> Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</span></p>
+<button onclick="myFunction8()" id="myBtn8">Read more</button>
+    </div>
+  </div>
+    
+    <div class="column malatya">
+    <div class="content">
+      <img src="images/diy_artuklu.png" alt="MalatyaCaravanserais4" style="width:100%">
+      <h4>Sevserek Han</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<span id="dots9">...</span><span id="more9"> Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</span></p>
+<button onclick="myFunction9()" id="myBtn9">Read more</button>
+    </div>
+  </div>
+    
+    <div class="column malatya">
+    <div class="content">
+      <img src="images/diy_artuklu.png" alt="MalatyaCaravanserais5" style="width:100%">
+      <h4>Şişman Han</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<span id="dots10">...</span><span id="more10"> Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</span></p>
+<button onclick="myFunction10()" id="myBtn10">Read more</button>
+    </div>
+  </div>
+    
+    <div class="column malatya">
+    <div class="content">
+      <img src="images/diy_artuklu.png" alt="MalatyaCaravanserais6" style="width:100%">
+      <h4>Taşhan</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<span id="dots11">...</span><span id="more11"> Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</span></p>
+<button onclick="myFunction11()" id="myBtn11">Read more</button>
+    </div>
+  </div>
+    
+    <div class="column malatya">
+    <div class="content">
+      <img src="images/diy_artuklu.png" alt="MalatyaCaravanserais7" style="width:100%">
+      <h4>Kara Han</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<span id="dots12">...</span><span id="more12"> Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</span></p>
+<button onclick="myFunction12()" id="myBtn12">Read more</button>
+    </div>
+  </div>
+    
+    <div class="column malatya">
+    <div class="content">
+      <img src="images/diy_artuklu.png" alt="MalatyaCaravanserais8" style="width:100%">
+      <h4>Şahna Han</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<span id="dots13">...</span><span id="more13"> Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</span></p>
+<button onclick="myFunction13()" id="myBtn13">Read more</button>
+    </div>
+  </div>
+    
+   
+        
+   <!-- Sivas --> 
+    
+    <div class="column sivas">
+    <div class="content">
+      <img src="images/diy_artuklu.png" alt="SivasCaravanserais1" style="width:100%">
+      <h4>Sarphan</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<span id="dots15">...</span><span id="more15"> Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</span></p>
+<button onclick="myFunction15()" id="myBtn15">Read more</button>
+    </div>
+  </div>
+   
+    <div class="column sivas">
+    <div class="content">
+      <img src="images/diy_artuklu.png" alt="SivasCaravanserais2" style="width:100%">
+      <h4>Gedik Han</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<span id="dots16">...</span><span id="more16"> Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</span></p>
+<button onclick="myFunction16()" id="myBtn16">Read more</button>
+    </div>
+  </div>
+   
+    <div class="column sivas">
+    <div class="content">
+      <img src="images/diy_artuklu.png" alt="SivasCaravanserais3" style="width:100%">
+      <h4>Alacahan</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<span id="dots17">...</span><span id="more17"> Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</span></p>
+<button onclick="myFunction17()" id="myBtn17">Read more</button>
+    </div>
+  </div>
+   
+    <div class="column sivas">
+    <div class="content">
+      <img src="images/diy_artuklu.png" alt="SivasCaravanserais4" style="width:100%">
+      <h4>Pamuk Han</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<span id="dots18">...</span><span id="more18"> Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</span></p>
+<button onclick="myFunction18()" id="myBtn18">Read more</button>
+    </div>
+  </div>
+    
+    <div class="column sivas">
+    <div class="content">
+      <img src="images/diy_artuklu.png" alt="SivasCaravanserais5" style="width:100%">
+      <h4>Burmahan</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<span id="dots19">...</span><span id="more19"> Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</span></p>
+<button onclick="myFunction19()" id="myBtn19">Read more</button>
+    </div>
+  </div>
+    
+    <div class="column sivas">
+    <div class="content">
+      <img src="images/diy_artuklu.png" alt="SivasCaravanserais6" style="width:100%">
+      <h4>Emirhan</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<span id="dots20">...</span><span id="more20"> Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</span></p>
+<button onclick="myFunction20()" id="myBtn20">Read more</button>
+    </div>
+  </div>
+            
+    <div class="column sivas">
+         
+    <div class="content">
+      <img src="images/diy_artuklu.png" alt="SivasCaravanserais7" style="width:100%">
+      <h4>Selçuk Tuzla Han</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<span id="dots21">...</span><span id="more21"> Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</span></p>
+<button onclick="myFunction21()" id="myBtn21">Read more</button>
+    </div>
+  </div>
+            
+    <div class="column sivas">
+    <div class="content">
+      <img src="images/diy_artuklu.png" alt="SivasCaravanserais8" style="width:100%">
+      <h4>Dumluca Han</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<span id="dots22">...</span><span id="more22"> Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</span></p>
+<button onclick="myFunction22()" id="myBtn22">Read more</button>
+    </div>
+  </div>
+            
+    <div class="column sivas">
+    <div class="content">
+      <img src="images/diy_artuklu.png" alt="SivasCaravanserais9" style="width:100%">
+      <h4>Mirçinge Han</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<span id="dots23">...</span><span id="more23"> Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</span></p>
+<button onclick="myFunction23()" id="myBtn23">Read more</button>
+    </div>
+  </div>
+            
+    <div class="column sivas">
+    <div class="content">
+      <img src="images/diy_artuklu.png" alt="SivasCaravanserais10" style="width:100%">
+      <h4>Tecer Han</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<span id="dots24">...</span><span id="more24"> Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</span></p>
+<button onclick="myFunction24()" id="myBtn24">Read more</button>
+    </div>
+  </div>
+            
+    <div class="column sivas">
+    <div class="content">
+      <img src="images/diy_artuklu.png" alt="SivasCaravanserais11" style="width:100%">
+      <h4>Lala Han</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<span id="dots25">...</span><span id="more25"> Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</span></p>
+<button onclick="myFunction25()" id="myBtn25">Read more</button>
+    </div>
+  </div>
+            
+    <div class="column sivas">
+    <div class="content">
+      <img src="images/diy_artuklu.png" alt="SivasCaravanserais12" style="width:100%">
+      <h4>Tatlıcak Latif Han</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<span id="dots26">...</span><span id="more26"> Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</span></p>
+<button onclick="myFunction26()" id="myBtn26">Read more</button>
+    </div>
+  </div>
+    
+      
+        <!-- Elazığ --> 
+    
+    <div class="column elazig">
+    <div class="content">
+      <img src="images/diy_artuklu.png" alt="ElazigCaravanserais1" style="width:100%">
+      <h4>Denizli Makıt Han</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<span id="dots14">...</span><span id="more14"> Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</span></p>
+<button onclick="myFunction14()" id="myBtn14">Read more</button>
+    </div>
+  </div>
+    
+    
+    <!-- Sonradan eklenenler--> 
+    
+    <div class="column malatya">
+    <div class="content">
+      <img src="images/diy_artuklu.png" alt="MalatyaCaravanserais9" style="width:100%">
+      <h4>Zilli Han</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<span id="dots27">...</span><span id="more27"> Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</span></p>
+<button onclick="myFunction27()" id="myBtn27">Read more</button>
+    </div>
+  </div>
+    
+    <div class="column sivas">
+    <div class="content">
+      <img src="images/diy_artuklu.png" alt="SivasCaravanserais13" style="width:100%">
+      <h4>Çubuk Han</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<span id="dots28">...</span><span id="more28"> Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</span></p>
+<button onclick="myFunction28()" id="myBtn28">Read more</button>
+    </div>
+  </div>
+    
+    <div class="column sivas">
+    <div class="content">
+      <img src="images/diy_artuklu.png" alt="SivasCaravanserais14" style="width:100%">
+      <h4>İbrahim Şah Han</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<span id="dots29">...</span><span id="more29"> Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</span></p>
+<button onclick="myFunction29()" id="myBtn29">Read more</button>
+    </div>
+  </div>
+         
+    <div class="column sivas">
+    <div class="content">
+      <img src="images/diy_artuklu.png" alt="SivasCaravanserais15" style="width:100%">
+      <h4>Sahip Ata Büyük Hanı</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<span id="dots30">...</span><span id="more30"> Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</span></p>
+<button onclick="myFunction30()" id="myBtn30">Read more</button>
+    </div>
+  </div>
+           
+    
+    
+<!-- Mardin --> 
+       
+    <div class="column mardin">
+      </div>
+   <!-- 
+  <div class="column mardin">
+    <div class="content">
+      <img src="images/mar_1.png" alt="MardinCaravanserais" style="width:100%">
+      <h4>Kızıltepe Han</h4>
+      <p>Lorem ipsum dolor..</p>
+    </div>
+  </div>
+      --> 
+
+<!-- Sirnak --> 
+            
+    <div class="column sirnak">
+      </div>
+    
+    
+<!-- Siirt --> 
+    
+     <div class="column siirt">
+      </div>
+    
+    
+<!-- Batman --> 
+    
+    <div class="column batman">
+      </div>
+    
+  
+
+</div>
+
+<script>
+filterSelection("all")
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("column");
+  if (c == "all") c = "";
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+  }
+}
+
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);     
+    }
+  }
+  element.className = arr1.join(" ");
+}
 
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  </body>
+// Add active class to the current button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script>
+
+    
+
+  
+<html>
+<body>
+<script src="js/codex1.js">
+</script>
+
+
+</body>
 </html>
+    
+    
+    
+    
+
+
+
+
