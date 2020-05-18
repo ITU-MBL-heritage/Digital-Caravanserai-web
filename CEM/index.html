@@ -5,9 +5,36 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+	  
+	  
+	  
+	  
+	  
+	  
+	  
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+	        
+	<meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<link rel="stylesheet" href="css/leaflet.css">
+	<link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+	<style>
+	#map {
+	  width: 100%;
+	  height: 80%;
+	  padding: 0;
+	  margin: 0;
+	}
+	</style>  
+
+	  
+	  
+	  
+	  
+	  
     <title>Digital Caravanserai</title>
   </head>
 
@@ -36,6 +63,325 @@
     </div>
   </div>
 </nav>
+	  <section id = 'UpHeadings'>
+	  	 <h2 class = "heading1">The Caravanserais Route from Kayseri to Sanliurfa
+</h2> 
+		  	 <h5 class = "heading2"> This part of the study shows the focuses on the caravansarais in  Şanlıurfa, Kilis, Gaziantep Adıyaman, Kahramanmaraş, Kayseri, Sivas.
+</h5> 
+	  </section>
+	  
+		 <h5 class = "heading3"> Kayseri
+		</h5> 
+	  
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/Caravansarai_1.js"></script>
+        <script src="data/CaravansaraLocations_2.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[33.41647626994576,28.32724400828623],[53.373247155886716,41.130112325277864]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        var layer_OpenStreetMap_0 = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            opacity: 1.0,
+            attribution: '',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 19
+        });
+        layer_OpenStreetMap_0;
+        map.addLayer(layer_OpenStreetMap_0);
+        function pop_Caravansarai_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['fid'] !== null ? Autolinker.link(feature.properties['fid'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Common Name'] !== null ? Autolinker.link(feature.properties['Common Name'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Alternative Names'] !== null ? Autolinker.link(feature.properties['Alternative Names'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Village'] !== null ? Autolinker.link(feature.properties['Village'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['District'] !== null ? Autolinker.link(feature.properties['District'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Province'] !== null ? Autolinker.link(feature.properties['Province'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Date'] !== null ? Autolinker.link(feature.properties['Date'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['References'] !== null ? Autolinker.link(feature.properties['References'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Latitute'] !== null ? Autolinker.link(feature.properties['Latitute'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Longitude'] !== null ? Autolinker.link(feature.properties['Longitude'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Caravansarai_1_0() {
+            return {
+                pane: 'pane_Caravansarai_1',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(225,89,137,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Caravansarai_1');
+        map.getPane('pane_Caravansarai_1').style.zIndex = 401;
+        map.getPane('pane_Caravansarai_1').style['mix-blend-mode'] = 'normal';
+        var layer_Caravansarai_1 = new L.geoJson(json_Caravansarai_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Caravansarai_1',
+            layerName: 'layer_Caravansarai_1',
+            pane: 'pane_Caravansarai_1',
+            onEachFeature: pop_Caravansarai_1,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Caravansarai_1_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Caravansarai_1);
+        map.addLayer(layer_Caravansarai_1);
+        function pop_CaravansaraLocations_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['fid'] !== null ? Autolinker.link(feature.properties['fid'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Common Name</th>\
+                        <td>' + (feature.properties['Common Name'] !== null ? Autolinker.link(feature.properties['Common Name'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Alternative Names</th>\
+                        <td>' + (feature.properties['Alternative Names'] !== null ? Autolinker.link(feature.properties['Alternative Names'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Village</th>\
+                        <td>' + (feature.properties['Village'] !== null ? Autolinker.link(feature.properties['Village'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">District</th>\
+                        <td>' + (feature.properties['District'] !== null ? Autolinker.link(feature.properties['District'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Province</th>\
+                        <td>' + (feature.properties['Province'] !== null ? Autolinker.link(feature.properties['Province'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Date</th>\
+                        <td>' + (feature.properties['Date'] !== null ? Autolinker.link(feature.properties['Date'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">References</th>\
+                        <td>' + (feature.properties['References'] !== null ? Autolinker.link(feature.properties['References'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Latitute'] !== null ? Autolinker.link(feature.properties['Latitute'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Longitude'] !== null ? Autolinker.link(feature.properties['Longitude'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_CaravansaraLocations_2_0() {
+            return {
+                pane: 'pane_CaravansaraLocations_2',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(213,50,53,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_CaravansaraLocations_2');
+        map.getPane('pane_CaravansaraLocations_2').style.zIndex = 402;
+        map.getPane('pane_CaravansaraLocations_2').style['mix-blend-mode'] = 'normal';
+        var layer_CaravansaraLocations_2 = new L.geoJson(json_CaravansaraLocations_2, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_CaravansaraLocations_2',
+            layerName: 'layer_CaravansaraLocations_2',
+            pane: 'pane_CaravansaraLocations_2',
+            onEachFeature: pop_CaravansaraLocations_2,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_CaravansaraLocations_2_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_CaravansaraLocations_2);
+        map.addLayer(layer_CaravansaraLocations_2);
+        setBounds();
+        </script>
+	  
+	  
+	  
+	  
+	  
+	  
+
+	<div class="accordion" id="accordionExample">
+	  <div class="card">
+		<div class="card-header" id="headingOne">
+		  <h2 class="mb-0">
+			<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" >
+			
+				  Sultan Han 
+			</button>
+		  </h2>
+		</div>
+
+		<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+		  <div class="card-body">
+			      Sultanhanı Kervansarayı Kayseri-Sivas karayolunun üzerinde ve Kayseri’ye 47. km uzaklıktadır. Aynı adı taşıyan köyün içindedir. Selçuklu Sultanı I. Alaeddin Keykubat zamanında 1232-1236 tarihleri arasında yaptırılmıştır.
+ 
+        Sultanhanı Kervansarayı tipik Selçuklu kervansaraylarından biridir. Selçuklu kervansarayları aynı plana göre tasarlanmakla beraber aynı zamanda birbirinden farklı görünüme sahiptirler. Bu fark, ek yapılarla veya unsurlarla belirginleşmektedir. Sultanhanı da özellikle ortasındaki köşk mescit ile görünüm olarak diğer kervansaraylardan ayrılmaktadır.
+
+		  </div>
+		</div>
+	  </div>
+	  <div class="card">
+		<div class="card-header" id="headingTwo">
+		  <h2 class="mb-0">
+			<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+				Karatay Han
+			  </button>
+		  </h2>
+		</div>
+		<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+		  <div class="card-body">
+			
+Kayseri-Malatya güzergâhında ve Karadayı köyündedir. Kuzey-güney yönünde uzanan han, kuzey kanadındaki kapalı/barınak bölümü ile güney kanadında yer alan avlu ve servis mekânlarından oluşmaktadır. Hanın dış cephe duvarları, cepheyle eş yükseklikte ve dışa taşkın prizmal kütleler halinde tasarlanmış kare, çokgen, silindirik ya da yıldız kesitli formlara sahip payanda ve köşe kuleleriyle desteklenmiştir; aralarında birer taş çörten bulunur. Avlunun doğu cephesinin güney kanadındaki sivri kemerli açıklık, cephenin gerisinde yer alan hamamın külhan ağzıdır. Hanın güney cephesi üzerinde yer alan ve dışa taşkın düşey dikdörtgen prizmal bir kütle halinde tasarlanmış taçkapısı, farklı geometrik kompozisyonlar içeren profilli bordür ve silmeleriyle, Selçuklu çağının klasik örneklerinden birini oluşturur. Taçkapının kavsarası, çift sıra sivri kemerle kuşatılmıştır; kavsara ile kemer arasında kalan yüzeylerde, simetrik olarak yerleştirilmiş bezemeli birer rozet yer alır. Kemer ile kemeri dıştan kuşatan profilli çerçeve arasında kalan köşeliklerde ise simetrik olarak bezemeli birer kabara yerleştirildiği anlaşılmaktaysa da, zamanla bir hayli harap olmuşlardır. Taçkapının üst çerçevesinde, etrafı taş bezemeli özel bir yuvaya oturtulmuş ve beyaz mermerden dört satırlık kitâbe bloğu yer almaktadır. Taçkapıyı yanlardan sınırlandıran yarı dairesel formlu sütuncelerin zar tipi başlıklarında arslan ve güvercin kabartmaları dikkati çeker.
+
+
+		  </div>
+		</div>
+	  </div>
+	  <div class="card">
+		<div class="card-header" id="headingThree">
+		  <h2 class="mb-0">
+			<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" >
+			  Afşin Eshab-ı Keyf Han / Eshab-ı Keyf Külliyesi 
+			</button>
+		  </h2>
+		</div>
+		<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+		  <div class="card-body">
+Afşin ilçesinin 7 km. kuzeybatısında yer almaktadır. Külliye Antik Çağ’dan beri kutsal sayılan Eshab-ı Kehf veya Eshabü’l-Kehf adıyla bilinen kayalık bir tepenin yamacındaki mağaranın çevresine yapılmıştır. Eshab-ı Kehf Bizans Devrine olduğu gibi Selçuklular’ın fethinden günümüze kadar da Hristiyanlar ve Müslümanlar tarafından kutsal bir mekan kabul edilerek önemli bir ziyaret yeri olmuştur. Eshab-ı Kehf’e gelen ziyaretçilerin ihtiyaçlarının karşılanması için Anadolu Selçuklularının Maraş Emiri Nusretüddin Hasan Bey tarafından 1215-1234 yılları arasında ribat, cami ve handan oluşan külliye inşa ettirilmiştir. Dulkadir Beyliği Hükümdarı Alauddevle Bey tarafından medrese ve babası Süleyman Bey tarafından buk’a inşa edilerek külliye büyütülmüş ancak buk’a günümüze kadar gelmemiştir. Alauddevle Bey’in hanımı Şems Hatun tarafından ise bir mescit (Kadınlar Mescidi) yaptırılmıştır. Külliyeye son ilave 1531 yılında Osmanlılar zamanında inşa edilen Paşa Çardağı ile olmuştur. Külliye tarihi dönemlerde önemli bir ziyaretgah olmasının yanı sıra çevrenin ilim ve kültür merkezi olmuştur. (Özkarcı:630-633) Özkarcı, Prof. Dr. Mehmet. (2007), Türk Kültür Varlıkları Envanteri I-II, Ankara: Türk Tarih Kurumu Yayınları.
+			</div>
+		</div>
+	  </div>
+		
+	  <div class="card">
+		<div class="card-header" id="headingFour">
+		  <h2 class="mb-0">
+			<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" >
+					Han El-Ba'rur
+			  </button>
+		  </h2>
+		</div>
+		<div id="collapseFour" class="collapse" aria-labelledby="heading." data-parent="#accordionExample">
+		  <div class="card-body">
+			  
+Harran'ın 27 km. güneydoğusundaki Göktaş Köyü'nde bulunan Han El-Ba'rur, Eyyubiler dönemine tarihlenmektedir. Tektek Dağları olarak anılan dağlık bölgede Harran-Bağdat yolu güzergâhında bulunan kervansaray; mescit, muhafız odası, ahırlar, hamam ve yazlık odalardan oluşmaktadır. Yapı, Anadolu Selçuklu kervansaraylarının tüm özelliklerini taşımaktadır. 43.30x44.80 metre ölçülerinde kareye yakın bir avluyu çevreleyen kervansarayın biri kuzeyde, diğeri de batıda olmak üzere iki kitabesi bulunmaktadır. Giriş kapısı üzerindeki kitabeden anlaşıldığına göre; kervansaray, İsa oğlu el-Hac Hüsameddin Ali Bey tarafından 1128-1129 tarihlerinde yaptırılmıştır. Hanın ismi olan "Ba'rur" kelimesi. Arapça'da "Keçi gübresi" anlamındadır.
+
+			</div>
+		</div>
+	  </div>
+		  	  <div class="card">
+		<div class="card-header" id="headingFive">
+		  <h2 class="mb-0">
+			<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive" >
+			  Vezir Han 
+			</button>
+		  </h2>
+		</div>
+		<div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+		  <div class="card-body">
+			  
+Vezir Hanı, Kayseri ticari dokusunun güney ucunda, Ulu Cami'nin kuzeydoğu köşesine yakındır. Giriş kapısı doğu cepheden olup, Kapalıçarşı'nın bir bölümünü oluşturan Urgancılar Çarşısı girişinin yanındandır.
+ 
+         Vezir Hanı, Sultan III. Ahmet döneminde Sadrazam Nevşehirli Damat İbrahim Paşa tarafından 1724 yılında yaptırılmıştır. Çarşının önemini ve kıymetini artırmak için çarşıda sadece kuyumcu, abacı, kumaşçı, çuhacı gibi o günün itibar gören mesleklerinin faaliyet gösterebileceği, bir ferman-ı ali ile şarta bağlanmıştır. Bu uygulama ile handaki dükkanlar çok kıymetlenmiştir. İbrahim Paşa'nın ölümünden sonra 1731 yılında yeni bir ferman isteyen esnafın istediği yerde mesleğini yürütebileceği belirtilerek serbest bırakılmıştır.   
+
+
+			</div>
+		</div>
+	  </div>
+	  
+	  
+	  <div class="card">
+		<div class="card-header" id="headingSix">
+		  <h2 class="mb-0">
+			<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix" >
+			  Afşin Eshab-ı Keyf Han / Eshab-ı Keyf Külliyesi 
+			</button>
+		  </h2>
+		</div>
+		
+		  <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+		  <div class="card-body">
+Afşin ilçesinin 7 km. kuzeybatısında yer almaktadır. Külliye Antik Çağ’dan beri kutsal sayılan Eshab-ı Kehf veya Eshabü’l-Kehf adıyla bilinen kayalık bir tepenin yamacındaki mağaranın çevresine yapılmıştır. Eshab-ı Kehf Bizans Devrine olduğu gibi Selçuklular’ın fethinden günümüze kadar da Hristiyanlar ve Müslümanlar tarafından kutsal bir mekan kabul edilerek önemli bir ziyaret yeri olmuştur. Eshab-ı Kehf’e gelen ziyaretçilerin ihtiyaçlarının karşılanması için Anadolu Selçuklularının Maraş Emiri Nusretüddin Hasan Bey tarafından 1215-1234 yılları arasında ribat, cami ve handan oluşan külliye inşa ettirilmiştir. Dulkadir Beyliği Hükümdarı Alauddevle Bey tarafından medrese ve babası Süleyman Bey tarafından buk’a inşa edilerek külliye büyütülmüş ancak buk’a günümüze kadar gelmemiştir. Alauddevle Bey’in hanımı Şems Hatun tarafından ise bir mescit (Kadınlar Mescidi) yaptırılmıştır. Külliyeye son ilave 1531 yılında Osmanlılar zamanında inşa edilen Paşa Çardağı ile olmuştur. Külliye tarihi dönemlerde önemli bir ziyaretgah olmasının yanı sıra çevrenin ilim ve kültür merkezi olmuştur. (Özkarcı:630-633) Özkarcı, Prof. Dr. Mehmet. (2007), Türk Kültür Varlıkları Envanteri I-II, Ankara: Türk Tarih Kurumu Yayınları.
+			</div>
+		</div>
+	  </div>
+	
+		
+		
+	</div>  
+	  
+
+		 <h5 class = "heading3">
+			 Sivas
+		</h5> 
+	  
+		 <h5 class = "heading3"> 
+			 Kahramanmaraş
+		</h5> 
 
 
     <!-- Optional JavaScript -->
@@ -43,5 +389,10 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	  
+	  
+	  
+	  
+	  
   </body>
 </html>
