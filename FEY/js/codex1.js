@@ -1,35 +1,6 @@
 
-filterSelection("all")
-function filterSelection(c) {
-  var x, i;
-  x = document.getElementsByClassName("column");
-  if (c == "all") c = "";
-  for (i = 0; i < x.length; i++) {
-    w3RemoveClass(x[i], "show");
-    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
-  }
-}
 
-function w3AddClass(element, name) {
-  var i, arr1, arr2;
-  arr1 = element.className.split(" ");
-  arr2 = name.split(" ");
-  for (i = 0; i < arr2.length; i++) {
-    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
-  }
-}
 
-function w3RemoveClass(element, name) {
-  var i, arr1, arr2;
-  arr1 = element.className.split(" ");
-  arr2 = name.split(" ");
-  for (i = 0; i < arr2.length; i++) {
-    while (arr1.indexOf(arr2[i]) > -1) {
-      arr1.splice(arr1.indexOf(arr2[i]), 1);     
-    }
-  }
-  element.className = arr1.join(" ");
-}
 
 
 
@@ -574,26 +545,602 @@ function myFunction30() {
 }
 
 
+function myFunction31() {
+  var dots31 = document.getElementById("dots31");
+  var moreText31 = document.getElementById("more31");
+  var btnText31 = document.getElementById("myBtn31");
 
 
-
-
-
-
-
-
-
-// Add active class to the current button (highlight it)
-var btnContainer = document.getElementById("myBtnContainer");
-var btns = btnContainer.getElementsByClassName("btn");
-for (var i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function(){
-    var current = document.getElementsByClassName("active");
-    current[0].className = current[0].className.replace(" active", "");
-    this.className += " active";
-  });
+    
+  if (dots31.style.display === "none") {
+    dots31.style.display = "inline";
+    btnText31.innerHTML = "Read more"; 
+    moreText31.style.display = "none";
+  } else {
+    dots31.style.display = "none";
+    btnText31.innerHTML = "Read less"; 
+    moreText31.style.display = "inline";
+  }
 }
 
+function myFunction32() {
+  var dots32 = document.getElementById("dots32");
+  var moreText32 = document.getElementById("more32");
+  var btnText32 = document.getElementById("myBtn32");
+
+
+    
+  if (dots32.style.display === "none") {
+    dots32.style.display = "inline";
+    btnText32.innerHTML = "Read more"; 
+    moreText32.style.display = "none";
+  } else {
+    dots32.style.display = "none";
+    btnText32.innerHTML = "Read less"; 
+    moreText32.style.display = "inline";
+  }
+}
+
+function myFunction33() {
+  var dots33 = document.getElementById("dots33");
+  var moreText33 = document.getElementById("more33");
+  var btnText33 = document.getElementById("myBtn33");
+
+
+    
+  if (dots33.style.display === "none") {
+    dots33.style.display = "inline";
+    btnText33.innerHTML = "Read more"; 
+    moreText33.style.display = "none";
+  } else {
+    dots33.style.display = "none";
+    btnText33.innerHTML = "Read less"; 
+    moreText33.style.display = "inline";
+  }
+}
+
+function myFunction34() {
+  var dots34 = document.getElementById("dots34");
+  var moreText34 = document.getElementById("more34");
+  var btnText34 = document.getElementById("myBtn34");
+
+
+    
+  if (dots34.style.display === "none") {
+    dots34.style.display = "inline";
+    btnText34.innerHTML = "Read more"; 
+    moreText34.style.display = "none";
+  } else {
+    dots34.style.display = "none";
+    btnText34.innerHTML = "Read less"; 
+    moreText34.style.display = "inline";
+  }
+}
+
+
+function myFunction35() {
+  var dots35 = document.getElementById("dots35");
+  var moreText35 = document.getElementById("more35");
+  var btnText35 = document.getElementById("myBtn35");
+
+
+    
+  if (dots35.style.display === "none") {
+    dots35.style.display = "inline";
+    btnText35.innerHTML = "Read more"; 
+    moreText35.style.display = "none";
+  } else {
+    dots35.style.display = "none";
+    btnText35.innerHTML = "Read less"; 
+    moreText35.style.display = "inline";
+  }
+}
+
+function myFunction36() {
+  var dots36 = document.getElementById("dots36");
+  var moreText36 = document.getElementById("more36");
+  var btnText36 = document.getElementById("myBtn36");
+
+
+    
+  if (dots36.style.display === "none") {
+    dots36.style.display = "inline";
+    btnText36.innerHTML = "Read more"; 
+    moreText36.style.display = "none";
+  } else {
+    dots36.style.display = "none";
+    btnText36.innerHTML = "Read less"; 
+    moreText36.style.display = "inline";
+  }
+}
+
+function myFunction37() {
+  var dots37 = document.getElementById("dots37");
+  var moreText37 = document.getElementById("more37");
+  var btnText37 = document.getElementById("myBtn37");
+
+
+    
+  if (dots37.style.display === "none") {
+    dots37.style.display = "inline";
+    btnText37.innerHTML = "Read more"; 
+    moreText37.style.display = "none";
+  } else {
+    dots37.style.display = "none";
+    btnText37.innerHTML = "Read less"; 
+    moreText37.style.display = "inline";
+  }
+}
+
+function myFunction38() {
+  var dots38 = document.getElementById("dots38");
+  var moreText38 = document.getElementById("more38");
+  var btnText38 = document.getElementById("myBtn38");
+
+
+    
+  if (dots38.style.display === "none") {
+    dots38.style.display = "inline";
+    btnText38.innerHTML = "Read more"; 
+    moreText38.style.display = "none";
+  } else {
+    dots38.style.display = "none";
+    btnText38.innerHTML = "Read less"; 
+    moreText38.style.display = "inline";
+  }
+}
+
+function myFunction39() {
+  var dots39 = document.getElementById("dots39");
+  var moreText39 = document.getElementById("more39");
+  var btnText39 = document.getElementById("myBtn39");
+
+
+    
+  if (dots39.style.display === "none") {
+    dots39.style.display = "inline";
+    btnText39.innerHTML = "Read more"; 
+    moreText39.style.display = "none";
+  } else {
+    dots39.style.display = "none";
+    btnText39.innerHTML = "Read less"; 
+    moreText39.style.display = "inline";
+  }
+}
+
+
+function myFunction40() {
+  var dots40 = document.getElementById("dots40");
+  var moreText40 = document.getElementById("more40");
+  var btnText40 = document.getElementById("myBtn40");
+
+
+    
+  if (dots40.style.display === "none") {
+    dots40.style.display = "inline";
+    btnText40.innerHTML = "Read more"; 
+    moreText40.style.display = "none";
+  } else {
+    dots40.style.display = "none";
+    btnText40.innerHTML = "Read less"; 
+    moreText40.style.display = "inline";
+  }
+}
+
+function myFunction41() {
+  var dots41 = document.getElementById("dots41");
+  var moreText41 = document.getElementById("more41");
+  var btnText41 = document.getElementById("myBtn41");
+
+
+    
+  if (dots41.style.display === "none") {
+    dots41.style.display = "inline";
+    btnText41.innerHTML = "Read more"; 
+    moreText41.style.display = "none";
+  } else {
+    dots41.style.display = "none";
+    btnText41.innerHTML = "Read less"; 
+    moreText41.style.display = "inline";
+  }
+}
+
+function myFunction42() {
+  var dots42 = document.getElementById("dots42");
+  var moreText42 = document.getElementById("more42");
+  var btnText42 = document.getElementById("myBtn42");
+
+
+    
+  if (dots42.style.display === "none") {
+    dots42.style.display = "inline";
+    btnText42.innerHTML = "Read more"; 
+    moreText42.style.display = "none";
+  } else {
+    dots42.style.display = "none";
+    btnText42.innerHTML = "Read less"; 
+    moreText42.style.display = "inline";
+  }
+}
+
+function myFunction43() {
+  var dots43 = document.getElementById("dots43");
+  var moreText43 = document.getElementById("more43");
+  var btnText43 = document.getElementById("myBtn43");
+
+
+    
+  if (dots43.style.display === "none") {
+    dots43.style.display = "inline";
+    btnText43.innerHTML = "Read more"; 
+    moreText43.style.display = "none";
+  } else {
+    dots43.style.display = "none";
+    btnText43.innerHTML = "Read less"; 
+    moreText43.style.display = "inline";
+  }
+}
+
+function myFunction44() {
+  var dots44 = document.getElementById("dots44");
+  var moreText44 = document.getElementById("more44");
+  var btnText44 = document.getElementById("myBtn44");
+
+
+    
+  if (dots44.style.display === "none") {
+    dots44.style.display = "inline";
+    btnText44.innerHTML = "Read more"; 
+    moreText44.style.display = "none";
+  } else {
+    dots44.style.display = "none";
+    btnText44.innerHTML = "Read less"; 
+    moreText44.style.display = "inline";
+  }
+}
+
+function myFunction45() {
+  var dots45 = document.getElementById("dots45");
+  var moreText45 = document.getElementById("more45");
+  var btnText45 = document.getElementById("myBtn45");
+
+
+    
+  if (dots45.style.display === "none") {
+    dots45.style.display = "inline";
+    btnText45.innerHTML = "Read more"; 
+    moreText45.style.display = "none";
+  } else {
+    dots45.style.display = "none";
+    btnText45.innerHTML = "Read less"; 
+    moreText45.style.display = "inline";
+  }
+}
+
+function myFunction46() {
+  var dots46 = document.getElementById("dots46");
+  var moreText46 = document.getElementById("more46");
+  var btnText46 = document.getElementById("myBtn46");
+
+
+    
+  if (dots46.style.display === "none") {
+    dots46.style.display = "inline";
+    btnText46.innerHTML = "Read more"; 
+    moreText46.style.display = "none";
+  } else {
+    dots46.style.display = "none";
+    btnText46.innerHTML = "Read less"; 
+    moreText46.style.display = "inline";
+  }
+}
+
+function myFunction47() {
+  var dots47 = document.getElementById("dots47");
+  var moreText47 = document.getElementById("more47");
+  var btnText47 = document.getElementById("myBtn47");
+
+
+    
+  if (dots47.style.display === "none") {
+    dots47.style.display = "inline";
+    btnText47.innerHTML = "Read more"; 
+    moreText47.style.display = "none";
+  } else {
+    dots47.style.display = "none";
+    btnText47.innerHTML = "Read less"; 
+    moreText47.style.display = "inline";
+  }
+}
+
+function myFunction48() {
+  var dots48 = document.getElementById("dots48");
+  var moreText48 = document.getElementById("more48");
+  var btnText48 = document.getElementById("myBtn48");
+
+
+    
+  if (dots48.style.display === "none") {
+    dots48.style.display = "inline";
+    btnText48.innerHTML = "Read more"; 
+    moreText48.style.display = "none";
+  } else {
+    dots48.style.display = "none";
+    btnText48.innerHTML = "Read less"; 
+    moreText48.style.display = "inline";
+  }
+}
+
+function myFunction49() {
+  var dots49 = document.getElementById("dots49");
+  var moreText49 = document.getElementById("more49");
+  var btnText49 = document.getElementById("myBtn49");
+
+
+    
+  if (dots49.style.display === "none") {
+    dots49.style.display = "inline";
+    btnText49.innerHTML = "Read more"; 
+    moreText49.style.display = "none";
+  } else {
+    dots49.style.display = "none";
+    btnText49.innerHTML = "Read less"; 
+    moreText49.style.display = "inline";
+  }
+}
+
+function myFunction50() {
+  var dots50 = document.getElementById("dots50");
+  var moreText50 = document.getElementById("more50");
+  var btnText50 = document.getElementById("myBtn50");
+
+
+    
+  if (dots50.style.display === "none") {
+    dots50.style.display = "inline";
+    btnText50.innerHTML = "Read more"; 
+    moreText50.style.display = "none";
+  } else {
+    dots50.style.display = "none";
+    btnText50.innerHTML = "Read less"; 
+    moreText50.style.display = "inline";
+  }
+}
+
+function myFunction51() {
+  var dots51 = document.getElementById("dots51");
+  var moreText51 = document.getElementById("more51");
+  var btnText51 = document.getElementById("myBtn51");
+
+
+    
+  if (dots51.style.display === "none") {
+    dots51.style.display = "inline";
+    btnText51.innerHTML = "Read more"; 
+    moreText51.style.display = "none";
+  } else {
+    dots51.style.display = "none";
+    btnText51.innerHTML = "Read less"; 
+    moreText51.style.display = "inline";
+  }
+}
+
+function myFunction52() {
+  var dots52 = document.getElementById("dots52");
+  var moreText52 = document.getElementById("more52");
+  var btnText52 = document.getElementById("myBtn52");
+
+
+    
+  if (dots52.style.display === "none") {
+    dots52.style.display = "inline";
+    btnText52.innerHTML = "Read more"; 
+    moreText52.style.display = "none";
+  } else {
+    dots52.style.display = "none";
+    btnText52.innerHTML = "Read less"; 
+    moreText52.style.display = "inline";
+  }
+}
+
+function myFunction53() {
+  var dots53 = document.getElementById("dots53");
+  var moreText53 = document.getElementById("more53");
+  var btnText53 = document.getElementById("myBtn53");
+
+
+    
+  if (dots53.style.display === "none") {
+    dots53.style.display = "inline";
+    btnText53.innerHTML = "Read more"; 
+    moreText53.style.display = "none";
+  } else {
+    dots53.style.display = "none";
+    btnText53.innerHTML = "Read less"; 
+    moreText53.style.display = "inline";
+  }
+}
+
+function myFunction54() {
+  var dots54 = document.getElementById("dots54");
+  var moreText54 = document.getElementById("more54");
+  var btnText54 = document.getElementById("myBtn54");
+
+
+    
+  if (dots54.style.display === "none") {
+    dots54.style.display = "inline";
+    btnText54.innerHTML = "Read more"; 
+    moreText54.style.display = "none";
+  } else {
+    dots54.style.display = "none";
+    btnText54.innerHTML = "Read less"; 
+    moreText54.style.display = "inline";
+  }
+}
+
+function myFunction55() {
+  var dots55 = document.getElementById("dots55");
+  var moreText55 = document.getElementById("more55");
+  var btnText55 = document.getElementById("myBtn55");
+
+
+    
+  if (dots55.style.display === "none") {
+    dots55.style.display = "inline";
+    btnText55.innerHTML = "Read more"; 
+    moreText55.style.display = "none";
+  } else {
+    dots55.style.display = "none";
+    btnText55.innerHTML = "Read less"; 
+    moreText55.style.display = "inline";
+  }
+}
+
+function myFunction56() {
+  var dots56 = document.getElementById("dots56");
+  var moreText56 = document.getElementById("more56");
+  var btnText56 = document.getElementById("myBtn56");
+
+
+    
+  if (dots56.style.display === "none") {
+    dots56.style.display = "inline";
+    btnText56.innerHTML = "Read more"; 
+    moreText56.style.display = "none";
+  } else {
+    dots56.style.display = "none";
+    btnText56.innerHTML = "Read less"; 
+    moreText56.style.display = "inline";
+  }
+}
+
+
+function myFunction57() {
+  var dots57 = document.getElementById("dots57");
+  var moreText57 = document.getElementById("more57");
+  var btnText57 = document.getElementById("myBtn57");
+
+
+    
+  if (dots57.style.display === "none") {
+    dots57.style.display = "inline";
+    btnText57.innerHTML = "Read more"; 
+    moreText57.style.display = "none";
+  } else {
+    dots57.style.display = "none";
+    btnText57.innerHTML = "Read less"; 
+    moreText57.style.display = "inline";
+  }
+}
+
+function myFunction58() {
+  var dots58 = document.getElementById("dots58");
+  var moreText58 = document.getElementById("more58");
+  var btnText58 = document.getElementById("myBtn58");
+
+
+    
+  if (dots58.style.display === "none") {
+    dots58.style.display = "inline";
+    btnText58.innerHTML = "Read more"; 
+    moreText58.style.display = "none";
+  } else {
+    dots58.style.display = "none";
+    btnText58.innerHTML = "Read less"; 
+    moreText58.style.display = "inline";
+  }
+}
+
+function myFunction59() {
+  var dots59 = document.getElementById("dots59");
+  var moreText59 = document.getElementById("more59");
+  var btnText59 = document.getElementById("myBtn59");
+
+
+    
+  if (dots59.style.display === "none") {
+    dots59.style.display = "inline";
+    btnText59.innerHTML = "Read more"; 
+    moreText59.style.display = "none";
+  } else {
+    dots59.style.display = "none";
+    btnText59.innerHTML = "Read less"; 
+    moreText59.style.display = "inline";
+  }
+}
+
+function myFunction60() {
+  var dots60 = document.getElementById("dots60");
+  var moreText60 = document.getElementById("more60");
+  var btnText60 = document.getElementById("myBtn60");
+
+
+    
+  if (dots60.style.display === "none") {
+    dots60.style.display = "inline";
+    btnText60.innerHTML = "Read more"; 
+    moreText60.style.display = "none";
+  } else {
+    dots60.style.display = "none";
+    btnText60.innerHTML = "Read less"; 
+    moreText60.style.display = "inline";
+  }
+}
+
+function myFunction61() {
+  var dots61 = document.getElementById("dots61");
+  var moreText61 = document.getElementById("more61");
+  var btnText61 = document.getElementById("myBtn61");
+
+
+    
+  if (dots61.style.display === "none") {
+    dots61.style.display = "inline";
+    btnText61.innerHTML = "Read more"; 
+    moreText61.style.display = "none";
+  } else {
+    dots61.style.display = "none";
+    btnText61.innerHTML = "Read less"; 
+    moreText61.style.display = "inline";
+  }
+}
+
+function myFunction62() {
+  var dots62 = document.getElementById("dots62");
+  var moreText62 = document.getElementById("more62");
+  var btnText62 = document.getElementById("myBtn62");
+
+
+    
+  if (dots62.style.display === "none") {	
+    dots62.style.display = "inline";
+    btnText62.innerHTML = "Read more"; 
+    moreText62.style.display = "none";
+  } else {
+    dots62.style.display = "none";
+    btnText62.innerHTML = "Read less"; 
+    moreText62.style.display = "inline";
+  }
+}
+
+function myFunction63() {
+  var dots63 = document.getElementById("dots63");
+  var moreText63 = document.getElementById("more63");
+  var btnText63 = document.getElementById("myBtn63");
+
+
+    	
+  if (dots63.style.display === "none") {	
+    dots63.style.display = "inline";
+    btnText63.innerHTML = "Read more"; 
+    moreText63.style.display = "none";
+  } else {
+    dots63.style.display = "none";
+    btnText63.innerHTML = "Read less"; 
+    moreText63.style.display = "inline";
+  }
+}
 
 
 

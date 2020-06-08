@@ -8,15 +8,17 @@ height: 50vh;
 */
 
 
-h1 {
-  color: #577575;
-    font-family: 'Montserrat', sans-serif;
-}
+#myHeader {
+     font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 500px;
+     }
 
 p {
     color: #7b9d9d;
     font-family: 'Merriweather', sans-serif;
-    font-size: 16px;
+    font-size: 14px;
+    font-weight: 100;
 }
 
 
@@ -26,8 +28,7 @@ p {
 
 body {
   background-color: #f1f1f1;
-  padding: 20px;
-  font-family: 'Merriweather', sans-serif;
+   font-family: 'Merriweather', sans-serif;
 }
 
 /* Center website */
@@ -37,20 +38,28 @@ body {
 }
 
 h2 {
-  font-size: 20px;
+  font-size: 24px;
     color: #577575;
     font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
     
 }
   
 
 h4 {
-  font-size: 16 px;
+  font-size: 18px;
     color:  #364949;
     font-family: 'Merriweather', sans-serif;
     
 }
   
+
+h3 {
+  font-size: 14px;
+    color:  #577575;
+    font-family: 'Montserrat', sans-serif;
+    
+}
 
 .row 
   margin: 10px -16px;
@@ -76,7 +85,7 @@ h4 {
 /* Create three equal columns that floats next to each other */
 .column {
   float: left;
-  width: 33.33%;
+  width: 25%;
   display: none; /* Hide all elements by default */
 }
 
@@ -97,26 +106,35 @@ h4 {
 }
 
 /* Style the buttons */
-.btn {
+.btnx {
   border: none;
   outline: none;
-  padding: 12px 16px;
+  padding: 9px 12px;
   background-color: #d9d9d9;
      cursor: pointer;
     border-radius: 12px;
+    font-size: 13px;
+    color: #577575;
 }
 
-.btn:hover {
-  background-color: #ddd;
-     border-radius: 12px;
-}
 
-/* Show all button */
-.btn.active {
-  background-color:  #577575;
+.container .btnx {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
   color: white;
-     border-radius: 12px;
+  font-size: 14px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
 }
+
+
 
 #myBtn1 {
   border: none;
@@ -466,7 +484,406 @@ color:  #364949;
 font-family: 'Montserrat', sans-serif;
 font-weight: 500;
   }
+
 #myBtn30 {
+  border: none;
+  outline: none;
+  padding: 6px 8px;
+  background-color: #d9d9d9;
+cursor: pointer;
+border-radius: 10px;
+font-size: 12px;
+color:  #364949;
+font-family: 'Montserrat', sans-serif;
+font-weight: 500;
+  }
+#myBtn31 {
+  border: none;
+  outline: none;
+  padding: 6px 8px;
+  background-color: #d9d9d9;
+cursor: pointer;
+border-radius: 10px;
+font-size: 12px;
+color:  #364949;
+font-family: 'Montserrat', sans-serif;
+font-weight: 500;
+  }
+#myBtn32 {
+  border: none;
+  outline: none;
+  padding: 6px 8px;
+  background-color: #d9d9d9;
+cursor: pointer;
+border-radius: 10px;
+font-size: 12px;
+color:  #364949;
+font-family: 'Montserrat', sans-serif;
+font-weight: 500;
+  }
+#myBtn33 {
+  border: none;
+  outline: none;
+  padding: 6px 8px;
+  background-color: #d9d9d9;
+cursor: pointer;
+border-radius: 10px;
+font-size: 12px;
+color:  #364949;
+font-family: 'Montserrat', sans-serif;
+font-weight: 500;
+  }
+#myBtn34 {
+  border: none;
+  outline: none;
+  padding: 6px 8px;
+  background-color: #d9d9d9;
+cursor: pointer;
+border-radius: 10px;
+font-size: 12px;
+color:  #364949;
+font-family: 'Montserrat', sans-serif;
+font-weight: 500;
+  }
+#myBtn35 {
+  border: none;
+  outline: none;
+  padding: 6px 8px;
+  background-color: #d9d9d9;
+cursor: pointer;
+border-radius: 10px;
+font-size: 12px;
+color:  #364949;
+font-family: 'Montserrat', sans-serif;
+font-weight: 500;
+  }
+#myBtn36 {
+  border: none;
+  outline: none;
+  padding: 6px 8px;
+  background-color: #d9d9d9;
+cursor: pointer;
+border-radius: 10px;
+font-size: 12px;
+color:  #364949;
+font-family: 'Montserrat', sans-serif;
+font-weight: 500;
+  }
+#myBtn37 {
+  border: none;
+  outline: none;
+  padding: 6px 8px;
+  background-color: #d9d9d9;
+cursor: pointer;
+border-radius: 10px;
+font-size: 12px;
+color:  #364949;
+font-family: 'Montserrat', sans-serif;
+font-weight: 500;
+  }
+#myBtn38 {
+  border: none;
+  outline: none;
+  padding: 6px 8px;
+  background-color: #d9d9d9;
+cursor: pointer;
+border-radius: 10px;
+font-size: 12px;
+color:  #364949;
+font-family: 'Montserrat', sans-serif;
+font-weight: 500;
+  }
+#myBtn39 {
+  border: none;
+  outline: none;
+  padding: 6px 8px;
+  background-color: #d9d9d9;
+cursor: pointer;
+border-radius: 10px;
+font-size: 12px;
+color:  #364949;
+font-family: 'Montserrat', sans-serif;
+font-weight: 500;
+  }
+#myBtn40 {
+  border: none;
+  outline: none;
+  padding: 6px 8px;
+  background-color: #d9d9d9;
+cursor: pointer;
+border-radius: 10px;
+font-size: 12px;
+color:  #364949;
+font-family: 'Montserrat', sans-serif;
+font-weight: 500;
+  }
+#myBtn41 {
+  border: none;
+  outline: none;
+  padding: 6px 8px;
+  background-color: #d9d9d9;
+cursor: pointer;
+border-radius: 10px;
+font-size: 12px;
+color:  #364949;
+font-family: 'Montserrat', sans-serif;
+font-weight: 500;
+  }
+
+#myBtn42 {
+  border: none;
+  outline: none;
+  padding: 6px 8px;
+  background-color: #d9d9d9;
+cursor: pointer;
+border-radius: 10px;
+font-size: 12px;
+color:  #364949;
+font-family: 'Montserrat', sans-serif;
+font-weight: 500;
+  }
+#myBtn43 {
+  border: none;
+  outline: none;
+  padding: 6px 8px;
+  background-color: #d9d9d9;
+cursor: pointer;
+border-radius: 10px;
+font-size: 12px;
+color:  #364949;
+font-family: 'Montserrat', sans-serif;
+font-weight: 500;
+  }
+#myBtn44 {
+  border: none;
+  outline: none;
+  padding: 6px 8px;
+  background-color: #d9d9d9;
+cursor: pointer;
+border-radius: 10px;
+font-size: 12px;
+color:  #364949;
+font-family: 'Montserrat', sans-serif;
+font-weight: 500;
+  }
+
+#myBtn45 {
+  border: none;
+  outline: none;
+  padding: 6px 8px;
+  background-color: #d9d9d9;
+cursor: pointer;
+border-radius: 10px;
+font-size: 12px;
+color:  #364949;
+font-family: 'Montserrat', sans-serif;
+font-weight: 500;
+  }
+#myBtn46 {
+  border: none;
+  outline: none;
+  padding: 6px 8px;
+  background-color: #d9d9d9;
+cursor: pointer;
+border-radius: 10px;
+font-size: 12px;
+color:  #364949;
+font-family: 'Montserrat', sans-serif;
+font-weight: 500;
+  }
+#myBtn47 {
+  border: none;
+  outline: none;
+  padding: 6px 8px;
+  background-color: #d9d9d9;
+cursor: pointer;
+border-radius: 10px;
+font-size: 12px;
+color:  #364949;
+font-family: 'Montserrat', sans-serif;
+font-weight: 500;
+  }
+#myBtn48 {
+  border: none;
+  outline: none;
+  padding: 6px 8px;
+  background-color: #d9d9d9;
+cursor: pointer;
+border-radius: 10px;
+font-size: 12px;
+color:  #364949;
+font-family: 'Montserrat', sans-serif;
+font-weight: 500;
+  }
+#myBtn49 {
+  border: none;
+  outline: none;
+  padding: 6px 8px;
+  background-color: #d9d9d9;
+cursor: pointer;
+border-radius: 10px;
+font-size: 12px;
+color:  #364949;
+font-family: 'Montserrat', sans-serif;
+font-weight: 500;
+  }
+#myBtn50 {
+  border: none;
+  outline: none;
+  padding: 6px 8px;
+  background-color: #d9d9d9;
+cursor: pointer;
+border-radius: 10px;
+font-size: 12px;
+color:  #364949;
+font-family: 'Montserrat', sans-serif;
+font-weight: 500;
+  }
+#myBtn51 {
+  border: none;
+  outline: none;
+  padding: 6px 8px;
+  background-color: #d9d9d9;
+cursor: pointer;
+border-radius: 10px;
+font-size: 12px;
+color:  #364949;
+font-family: 'Montserrat', sans-serif;
+font-weight: 500;
+  }
+#myBtn52 {
+  border: none;
+  outline: none;
+  padding: 6px 8px;
+  background-color: #d9d9d9;
+cursor: pointer;
+border-radius: 10px;
+font-size: 12px;
+color:  #364949;
+font-family: 'Montserrat', sans-serif;
+font-weight: 500;
+  }
+#myBtn53 {
+  border: none;
+  outline: none;
+  padding: 6px 8px;
+  background-color: #d9d9d9;
+cursor: pointer;
+border-radius: 10px;
+font-size: 12px;
+color:  #364949;
+font-family: 'Montserrat', sans-serif;
+font-weight: 500;
+  }
+#myBtn54 {
+  border: none;
+  outline: none;
+  padding: 6px 8px;
+  background-color: #d9d9d9;
+cursor: pointer;
+border-radius: 10px;
+font-size: 12px;
+color:  #364949;
+font-family: 'Montserrat', sans-serif;
+font-weight: 500;
+  }
+#myBtn55 {
+  border: none;
+  outline: none;
+  padding: 6px 8px;
+  background-color: #d9d9d9;
+cursor: pointer;
+border-radius: 10px;
+font-size: 12px;
+color:  #364949;
+font-family: 'Montserrat', sans-serif;
+font-weight: 500;
+  }
+#myBtn56 {
+  border: none;
+  outline: none;
+  padding: 6px 8px;
+  background-color: #d9d9d9;
+cursor: pointer;
+border-radius: 10px;
+font-size: 12px;
+color:  #364949;
+font-family: 'Montserrat', sans-serif;
+font-weight: 500;
+  }
+#myBtn57 {
+  border: none;
+  outline: none;
+  padding: 6px 8px;
+  background-color: #d9d9d9;
+cursor: pointer;
+border-radius: 10px;
+font-size: 12px;
+color:  #364949;
+font-family: 'Montserrat', sans-serif;
+font-weight: 500;
+  }
+#myBtn58 {
+  border: none;
+  outline: none;
+  padding: 6px 8px;
+  background-color: #d9d9d9;
+cursor: pointer;
+border-radius: 10px;
+font-size: 12px;
+color:  #364949;
+font-family: 'Montserrat', sans-serif;
+font-weight: 500;
+  }
+#myBtn59 {
+  border: none;
+  outline: none;
+  padding: 6px 8px;
+  background-color: #d9d9d9;
+cursor: pointer;
+border-radius: 10px;
+font-size: 12px;
+color:  #364949;
+font-family: 'Montserrat', sans-serif;
+font-weight: 500;
+  }
+#myBtn60 {
+  border: none;
+  outline: none;
+  padding: 6px 8px;
+  background-color: #d9d9d9;
+cursor: pointer;
+border-radius: 10px;
+font-size: 12px;
+color:  #364949;
+font-family: 'Montserrat', sans-serif;
+font-weight: 500;
+  }
+#myBtn61 {
+  border: none;
+  outline: none;
+  padding: 6px 8px;
+  background-color: #d9d9d9;
+cursor: pointer;
+border-radius: 10px;
+font-size: 12px;
+color:  #364949;
+font-family: 'Montserrat', sans-serif;
+font-weight: 500;
+  }
+#myBtn62 {
+  border: none;
+  outline: none;
+  padding: 6px 8px;
+  background-color: #d9d9d9;
+cursor: pointer;
+border-radius: 10px;
+font-size: 12px;
+color:  #364949;
+font-family: 'Montserrat', sans-serif;
+font-weight: 500;
+  }
+#myBtn63 {
   border: none;
   outline: none;
   padding: 6px 8px;
@@ -482,27 +899,22 @@ font-weight: 500;
 
 
 
-
-
-.container .btnx {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  background-color: #555;
-  color: white;
-  font-size: 12px;
-  padding: 12px 24px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  text-align: center;
-}
-
 .container .btnx:hover {
   background-color: black;
 }
+
+
+
+
+
+/* Show all button */
+.btn.active {
+  background-color:  #577575;
+  color: white;
+     border-radius: 12px;
+}
+
+
 
 #more1 {display: none;}
 #more2 {display: none;}
@@ -534,4 +946,46 @@ font-weight: 500;
 #more28 {display: none;}
 #more29 {display: none;}
 #more30 {display: none;}
+#more31 {display: none;}
+#more32 {display: none;}
+
+#more33 {display: none;}
+#more34 {display: none;}
+#more35 {display: none;}
+#more36 {display: none;}
+#more37 {display: none;}
+#more38 {display: none;}
+#more39 {display: none;}
+#more40 {display: none;}
+#more41 {display: none;}
+#more42 {display: none;}
+#more43 {display: none;}
+
+#more44 {display: none;}
+#more45 {display: none;}
+
+#more46 {display: none;}
+#more47 {display: none;}
+
+#more48 {display: none;}
+
+#more49 {display: none;}
+
+
+#more50 {display: none;}
+#more51 {display: none;}
+
+#more52 {display: none;}
+#more53 {display: none;}
+#more54 {display: none;}
+#more55 {display: none;}
+
+#more56 {display: none;}
+#more57 {display: none;}
+#more58 {display: none;}
+#more59 {display: none;}
+#more60 {display: none;}
+#more61 {display: none;}
+#more62 {display: none;}
+#more63 {display: none;}
 
