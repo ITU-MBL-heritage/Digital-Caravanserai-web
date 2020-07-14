@@ -1,0 +1,48 @@
+p{
+  font-family: 'Dosis', sans-serif;
+  color: #3d2510;
+}
+#header{
+  background-color: #f5e7d6;
+  width: 100%;
+  height: 600%;
+  background-position: center;
+}
+#title{
+  text-align: center;
+  font-size: 35px;
+}
+#cities{
+  text-align: center;
+  font-size: 18px;
+}
+.line{
+  background-color: #3d2510;
+  width: 100%;
+  height: 10px;
+  background-position: center;
+}
+
+.container-main{
+  display: flex;
+  justify-content: space-between;
+}
+.container-city{
+  display: flex;
+  flex-direction: column;
+}
+.city-name{
+  background-color: #f0dcc1;
+  width: 170px;
+  height: 50px;
+  background-position: center;
+  text-align: center;
+  font-size: 18px;
+}
+.card-body{
+  background-color: #faf3ea;
+  text-align: center;
+  font-family: 'Dosis', sans-serif;
+  color: #3d2510;
+  font-size: 12px;
+}
