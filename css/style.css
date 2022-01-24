@@ -1,5 +1,6 @@
 .bannerhead {
   /* height: 100vh; */
+  position: relative;
   min-height: 500px;
   padding-bottom: 50px;
   /* background-image: url("../img/han.jpg"); */
@@ -21,8 +22,16 @@
 }
 
 #han-slide{
-  background-color: gray;
+  background-color: #d8d0ba;
 
 
+}
+
+body {
+	background-color: #d8d0ba;
+}
+
+.list-group-item{
+  background-color: inherit;
 }
 
